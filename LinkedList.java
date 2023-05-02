@@ -11,4 +11,21 @@ public class LinkedList {
         return false;
     }
 
+    public LinkedList add(int value){
+        Node node = new Node(null, value);
+        if (this.isEmpty()){
+            this.head = node;
+
+        }
+        else {
+            Node finalspot = this.head;
+            while (finalspot.getNext() != null){
+                finalspot = finalspot.getNext();
+            }
+            finalspot.setNext(node);
+
+        }
+        return this;
+    }
+
 }

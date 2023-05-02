@@ -5,7 +5,7 @@ public class Node {
     private int key = 0;
 
     public Node(Node next, int key){
-        this.next = next;
+        this.setNext(next);
         this.key = key;
 
     }
@@ -18,5 +18,7 @@ public class Node {
         return this.key;
     }
 
-
+    public void setNext(Node next) {
+        this.next = next;
+    }
 }
