@@ -1,13 +1,14 @@
-
-
-
 public class LinkedList {
 
     private Node head = new Node(null, 0);
 
 
-    public void isEmpty(){
-        if head.getNext()
+    public boolean isEmpty(){
+        if (head.getNext() == null){
+            return true;
+        }
+
+        return false;
     }
 
 }

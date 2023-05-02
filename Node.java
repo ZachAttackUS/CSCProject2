@@ -15,7 +15,7 @@ public class Node {
     }
 
     public int getKey(){
-        return
+        return this.key;
     }
 
 
