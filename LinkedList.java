@@ -7,7 +7,7 @@ public class LinkedList {
 
 
     public void isEmpty(){
-        if head.
+        if head.getNext()
     }
 
 }
