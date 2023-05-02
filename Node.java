@@ -10,5 +10,13 @@ public class Node {
 
     }
 
+    public Node getNext(){
+        return this.next;
+    }
+
+    public int getKey(){
+        return
+    }
+
 
 }

@@ -1,5 +1,13 @@
+
+
+
 public class LinkedList {
 
-    Node Head;
+    private Node head = new Node(null, 0);
+
+
+    public void isEmpty(){
+        if head.
+    }
 
 }
