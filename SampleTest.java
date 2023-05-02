@@ -65,11 +65,15 @@ public class SampleTest {
         System.setOut(this.old);
     }
     @Test
-    public void sigmaTest(){
+    public void testAdd(){
         LinkedList test = new LinkedList();
 
         test.add(1);
+        test.add(2);
+        test.add(3);
 
         assertEquals(1, test.getHead().getNext().getKey());
+        assertEquals(2, test.getHead().getNext().getNext().getKey());
+        assertEquals(3, test.getHead().getNext().getNext().getNext().getKey());
 }
 }

@@ -17,7 +17,7 @@ public class LinkedList {
     public LinkedList add(int value){
         Node node = new Node(null, value);
         if (this.isEmpty()){
-            this.head = node;
+            this.head.setNext(node);
 
         }
         else {
