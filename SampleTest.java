@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
+
 /**
  * This file contains JUnit tests for some sample arithmetic
  * expressions. This file tests your program "as a whole", by
@@ -63,4 +64,12 @@ public class SampleTest {
         System.out.flush();
         System.setOut(this.old);
     }
+    @Test
+    public void sigmaTest(){
+        LinkedList test = new LinkedList();
+
+        test.add(1);
+
+        assertEquals(1, test.getHead().getNext().getKey());
+}
 }

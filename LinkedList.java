@@ -2,6 +2,9 @@ public class LinkedList {
 
     private Node head = new Node(null, 0);
 
+    public Node getHead() {
+        return head;
+    }
 
     public boolean isEmpty(){
         if (head.getNext() == null){
@@ -27,5 +30,7 @@ public class LinkedList {
         }
         return this;
     }
+
+
 
 }

@@ -1,6 +1,6 @@
 public class Node {
 
-    private Node next = null;
+    private Node next;
 
     private int key = 0;
 
