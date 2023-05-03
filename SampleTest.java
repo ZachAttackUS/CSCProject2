@@ -89,4 +89,32 @@ public class SampleTest {
         //assertEquals(ListTest.getHead().getNext().getKey(), EmptyList.reverseAndAdd("123").getHead().getNext().getKey());
 
     }
-}
+
+    @Test
+    public void testSizeLinkedList() {
+        LinkedList test = new LinkedList();
+
+        test.add(1);
+        test.add(2);
+        test.add(3);
+        assertEquals(3, test.size());
+    }
+
+    @Test
+    public void testSizeLinkedList2() {
+        LinkedList test = new LinkedList();
+        assertEquals(0, test.size());
+    }
+
+    @Test
+    public void testSizeLinkedList3() {
+        LinkedList test = new LinkedList();
+
+        test.add(1);
+        test.add(2);
+        test.add(3);
+        test.add(10);
+        assertEquals(4, test.size());
+    }
+
+    }

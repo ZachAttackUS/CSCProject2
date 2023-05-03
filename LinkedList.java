@@ -6,6 +6,16 @@ public class LinkedList {
         return head;
     }
 
+    public int size(){
+        int length = 0;
+        while (this.head.getNext() != null){
+            this.head = this.head.getNext();
+            length++;
+        }
+        return length;
+    }
+
+
     public boolean isEmpty(){
         if (head.getNext() == null){
             return true;
@@ -14,7 +24,7 @@ public class LinkedList {
         return false;
     }
 
-    public LinkedList add(int value){
+    public void add(int value){
         Node node = new Node(null, value);
         if (this.isEmpty()){
             this.head.setNext(node);
@@ -28,7 +38,6 @@ public class LinkedList {
             finalspot.setNext(node);
 
         }
-        return this;
     }
 
     public LinkedList reverseAndAdd(String num){
