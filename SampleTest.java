@@ -117,4 +117,13 @@ public class SampleTest {
         assertEquals(4, test.size());
     }
 
+    @Test
+    public void testADD(){
+        assertEquals("200", Operations.add_Operation("110", "90"));
+        assertEquals("208774", Operations.add_Operation("198775", "9999"));
+        assertEquals("-10", Operations.add_Operation("-9","-1"));
+        assertEquals("100", Operations.add_Operation("99","1"));
+
+    }
+
     }

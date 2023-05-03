@@ -1,13 +1,10 @@
-import java.util.ArrayList;
-import java.lang.Math;
-
 import static java.lang.Math.abs;
 
 public class Operations {
 
 
     //takes in two strings which are representative of numbers
-    public static int add_Operation(String value1, String value2){
+    public static String add_Operation(String value1, String value2){
         int lenDiff = value1.length() - value2.length();
         lenDiff = abs(lenDiff); //used for adding leading zeros in lists
 
@@ -24,7 +21,7 @@ public class Operations {
             value2 = value2Builder.toString();
         }
         //adds leading 0s to front of value2 if shorter
-        else {
+        else if (value2.length() > value1.length()) {
             StringBuilder value1Builder = new StringBuilder(value1);
             for (int i = lenDiff; i > 0; i--){
                 value1Builder.insert(0, "0");
@@ -42,25 +39,40 @@ public class Operations {
         Node current2 = addList2.getHead().getNext(); //node for traversing through second list
         LinkedList finalList = new LinkedList(); //list for computed value
 
-        int hold = 0;
+        int carry = 0;
         while (current1 != null && current2 != null){
 
             int added = current1.getKey() + current2.getKey();
+
+            if (carry > 0){
+                added += 1;
+                carry = 0;
+            }
             if (added > 9){
-                hold = 1;
+                carry = 1;
                 added = added - 10;
             }
 
-            if (hold > 0){
-                finalList.add(added + 1);
-                hold = 0;
-            } else {
-                finalList.add(added);
-            }
+            finalList.add(added);
+
 
             current1 = current1.getNext();
             current2 = current2.getNext();
         }
+
+        if (carry > 0){
+            finalList.add(1);
+        }
+        //turns linkedlist into string
+        Node finallistcur = finalList.getHead().getNext();
+        StringBuilder sb = new StringBuilder();
+        while (finallistcur != null){
+            sb.insert(0, finallistcur.getKey());
+            finallistcur = finallistcur.getNext();
+        }
+        String final_string = sb.toString();
+        return final_string;
+
 
 
 
