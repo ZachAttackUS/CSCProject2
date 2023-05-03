@@ -65,7 +65,7 @@ public class SampleTest {
         System.setOut(this.old);
     }
     @Test
-    public void testAdd(){
+    public void testAddLinkedList(){
         LinkedList test = new LinkedList();
 
         test.add(1);
@@ -75,5 +75,18 @@ public class SampleTest {
         assertEquals(1, test.getHead().getNext().getKey());
         assertEquals(2, test.getHead().getNext().getNext().getKey());
         assertEquals(3, test.getHead().getNext().getNext().getNext().getKey());
+
 }
+    @Test
+    public void testReverse(){
+
+        LinkedList ListTest = new LinkedList();
+        LinkedList EmptyList = new LinkedList();
+        ListTest.add(3);
+        ListTest.add(2);
+        ListTest.add(1);
+        assertEquals(ListTest, EmptyList.reverseAndAdd("123"));
+        //assertEquals(ListTest.getHead().getNext().getKey(), EmptyList.reverseAndAdd("123").getHead().getNext().getKey());
+
+    }
 }

@@ -31,6 +31,17 @@ public class LinkedList {
         return this;
     }
 
+    public LinkedList reverseAndAdd(String num){
+        char[] charArray = num.toCharArray();
+        for (int i = charArray.length - 1; i >= 0; i--){
+            int digit = Character.getNumericValue(charArray[i]);
+            this.add(digit);
+        }
+        System.out.println(this.getHead().getKey());
+        return this;
+    }
+
+
 
 
 }
