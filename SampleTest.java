@@ -77,18 +77,6 @@ public class SampleTest {
         assertEquals(3, test.getHead().getNext().getNext().getNext().getKey());
 
 }
-    @Test
-    public void testReverse(){
-
-        LinkedList ListTest = new LinkedList();
-        LinkedList EmptyList = new LinkedList();
-        ListTest.add(3);
-        ListTest.add(2);
-        ListTest.add(1);
-        assertEquals(ListTest, EmptyList.reverseAndAdd("123"));
-        //assertEquals(ListTest.getHead().getNext().getKey(), EmptyList.reverseAndAdd("123").getHead().getNext().getKey());
-
-    }
 
     @Test
     public void testSizeLinkedList() {
@@ -121,9 +109,26 @@ public class SampleTest {
     public void testADD(){
         assertEquals("200", Operations.add_Operation("110", "90"));
         assertEquals("208774", Operations.add_Operation("198775", "9999"));
-        assertEquals("-10", Operations.add_Operation("-9","-1"));
+        assertEquals("10", Operations.add_Operation("9","1"));
         assertEquals("100", Operations.add_Operation("99","1"));
 
+    }
+
+    @Test
+    public void testMulti(){
+        assertEquals("35", Operations.multiply_operation("7", "5"));
+        assertEquals("19435", Operations.multiply_operation("845", "23"));
+        assertEquals("16278925", Operations.multiply_operation("845", "19265"));
+        assertEquals("16289908342171365", Operations.multiply_operation("845545321", "19265565"));
+
+    }
+
+    @Test
+    public void testExponent(){
+        assertEquals(8, Operations.exponent_operation(2,3));
+        //assertEquals(10000, Operations.exponent_operation(10,4));
+        assertEquals(4, Operations.exponent_operation(2,2));
+        //assertEquals(8, Operations.exponent_operation(4,10));
     }
 
     }

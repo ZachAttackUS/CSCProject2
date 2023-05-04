@@ -72,16 +72,35 @@ public class Operations {
         }
         String final_string = sb.toString();
         return final_string;
-
-
-
-
-
-
-
-
         }
 
+    public static String multiply_operation(String value1, String value2){
+        //change to int
+        int SecondValueInt = Integer.parseInt(value2);
+        String additionvalue = value1;
+        System.out.println(SecondValueInt);
+        for (int i = 0; i < (SecondValueInt - 1); i++){
+            additionvalue = add_Operation(additionvalue, value1);
+        }
+        return additionvalue;
+    }
+
+    public static int exponent_operation(int value, int power){
+        String stringvalue = Integer.toString(value);
+        String multipliedvalue = multiply_operation(stringvalue,stringvalue);
+        int mult_int = Integer.parseInt(multipliedvalue);
+        if (power < 0){
+            return exponent_operation(1 / value, (-1 * power));
+        } else if (power == 0){
+            return 1;
+        } else if (power % 2 == 0){
+            return exponent_operation(mult_int, (power / 2));
+        } else {
+            return value * exponent_operation(mult_int, ((power - 1)/ 2));
+        }
+
+
+    }
 
 
     }
