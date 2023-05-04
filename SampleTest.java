@@ -131,4 +131,15 @@ public class SampleTest {
         //assertEquals(8, Operations.exponent_operation(4,10));
     }
 
+    @Test
+    public void testMakeEmpty(){
+        LinkedList empty = new LinkedList();
+        LinkedList test = new LinkedList();
+        test.add(4);
+        assertEquals(false, test.isEmpty());
+        test.make_Empty();
+        assertEquals(true, test.isEmpty());
+
+    }
+
     }

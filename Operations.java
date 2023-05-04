@@ -103,6 +103,74 @@ public class Operations {
     }
 
 
+    public static String multi(String value1, String value2){
+        int lenDiff = value1.length() - value2.length();
+        lenDiff = abs(lenDiff); //used for adding leading zeros in lists
+
+
+        LinkedList addList1 = new LinkedList(); //first value inputted. list form
+        LinkedList addList2= new LinkedList(); //second value inputted, list form
+
+        //adds leading 0s to front of value1 if shorter
+        if (value1.length() > value2.length()){
+            StringBuilder value2Builder = new StringBuilder(value2);
+            for (int i = lenDiff; i > 0; i--){
+                value2Builder.insert(0, "0");
+            }
+            value2 = value2Builder.toString();
+        }
+        //adds leading 0s to front of value2 if shorter
+        else if (value2.length() > value1.length()) {
+            StringBuilder value1Builder = new StringBuilder(value1);
+            for (int i = lenDiff; i > 0; i--){
+                value1Builder.insert(0, "0");
+            }
+            value2 = value1Builder.toString();
+        }
+
+        //adds nodes for each digit in values from right to left
+        for (int i = value1.length()-1; i >= 0; i--){
+            addList1.add(Character.getNumericValue(value1.charAt(i)));
+            addList2.add(Character.getNumericValue(value2.charAt(i)));
+        }
+
+        Node current1 = addList1.getHead().getNext(); //node for traversing through first list
+        Node current2 = addList2.getHead().getNext(); //node for traversing through second list
+        LinkedList multipleList = new LinkedList(); //list for computed value
+        LinkedList compared_List = new LinkedList(); //list for storing previous multiplication
+
+
+        //does the multiplication
+        int iterations = 0;
+        int carry = 0;
+        while (current1 != null){
+            while (current2 != null){
+                int multi_value = current1.getKey() * current2.getKey();
+                if (carry > 0){
+                    multi_value += carry;
+                    carry = 0;
+                }
+                if (multi_value > 9){
+                    carry = ((multi_value/10)%10);
+                    multi_value = multi_value%10;
+
+                }
+
+                multipleList.add(multi_value);
+                current2 = current2.getNext();
+            }
+
+            compared_List = multipleList;
+
+            iterations++;
+            multipleList.add(0);
+            if (iterations > 2);
+
+        }
+    return value1;
+    }
+
+
     }
 
 

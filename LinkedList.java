@@ -16,7 +16,11 @@ public class LinkedList {
         return length;
     }
 
+    public void make_Empty(){
+       Node temp = this.head;
+       temp.setNext(null);
 
+    }
 
     //returns true if list is empty, meaning head.getNext() == null
     public boolean isEmpty(){
