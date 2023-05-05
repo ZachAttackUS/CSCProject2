@@ -79,18 +79,23 @@ public class Operations {
         return additionvalue;
     }
 
-    public static int exponent_operation(int value, int power){
-        String stringvalue = Integer.toString(value);
-        String multipliedvalue = multiply_operation(stringvalue,stringvalue);
-        int mult_int = Integer.parseInt(multipliedvalue);
-        if (power < 0){
-            return exponent_operation(1 / value, (-1 * power));
-        } else if (power == 0){
+    public static int exponent_operation(String value, String power){
+
+        String multipliedvalue = multi(value, value);
+        int int_value = Integer.parseInt(value);
+        int int_power = Integer.parseInt(power);
+        String less_than_zero_value = Integer.toString(1/int_value);
+        String neg_power = Integer.toString(-1*int_power);
+        String power_div_two = Integer.toString(int_power / 2);
+        String power_minus_one_div_two = Integer.toString((int_power - 1)/ 2);
+        if (int_power < 0){
+            return exponent_operation(less_than_zero_value, neg_power);
+        } else if (int_power == 0){
             return 1;
-        } else if (power % 2 == 0){
-            return exponent_operation(mult_int, (power / 2));
+        } else if (int_power % 2 == 0){
+            return exponent_operation(multipliedvalue, power_div_two);
         } else {
-            return value * exponent_operation(mult_int, ((power - 1)/ 2));
+            return int_value * exponent_operation(multipliedvalue, power_minus_one_div_two);
         }
 
 
