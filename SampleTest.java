@@ -135,7 +135,7 @@ public class SampleTest {
         assertEquals("66661189804224", Operations.multi("6942069", "9602496"));
         assertEquals("66657084", Operations.multi("6942", "9602"));
         assertEquals("6664800", Operations.multi("69425", "96"));
-        System.out.println(Operations.multiply_operation("45","2"));
+
 
 
         //assertEquals("19435", Operations.multiply_operation("845", "23"));
@@ -150,6 +150,8 @@ public class SampleTest {
         assertEquals(10000, Operations.exponent_operation("10","4"));
         assertEquals(4, Operations.exponent_operation("2","2"));
         assertEquals(1024, Operations.exponent_operation("4","5"));
+        assertEquals(8, Operations.exponent_operation("2","-3"));
+
     }
 
     @Test
