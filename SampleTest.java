@@ -150,6 +150,9 @@ public class SampleTest {
         assertEquals(10000, Operations.exponent_operation("10","4"));
         assertEquals(4, Operations.exponent_operation("2","2"));
         assertEquals(1024, Operations.exponent_operation("4","5"));
+        assertEquals(4096, Operations.exponent_operation("2","12"));
+        assertEquals(32768, Operations.exponent_operation("2","15"));
+        assertEquals(32768, Operations.exponent_operation("2","15"));
 
     }
 
