@@ -22,6 +22,16 @@ public class LinkedList {
 
     }
 
+    public String turn_into_string(){
+        Node finallistcur = this.getHead().getNext();
+        StringBuilder sb = new StringBuilder();
+        while (finallistcur != null){
+            sb.insert(0, finallistcur.getKey());
+            finallistcur = finallistcur.getNext();
+        }
+        String final_string = sb.toString();
+        return final_string;
+    }
     //returns true if list is empty, meaning head.getNext() == null
     public boolean isEmpty(){
         if (head.getNext() == null){

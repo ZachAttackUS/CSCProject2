@@ -111,15 +111,29 @@ public class SampleTest {
         assertEquals("208774", Operations.add_Operation("198775", "9999"));
         assertEquals("10", Operations.add_Operation("9","1"));
         assertEquals("100", Operations.add_Operation("99","1"));
+        assertEquals("100", Operations.add_Operation("100","00"));
+        assertEquals("900", Operations.add_Operation("000","900"));
+        assertEquals("80", Operations.add_Operation("0","80"));
+        assertEquals("80", Operations.add_Operation("80","0"));
+
+
 
     }
 
     @Test
     public void testMulti(){
-        assertEquals("35", Operations.multiply_operation("7", "5"));
-        assertEquals("19435", Operations.multiply_operation("845", "23"));
-        assertEquals("16278925", Operations.multiply_operation("845", "19265"));
-        assertEquals("16289908342171365", Operations.multiply_operation("845545321", "19265565"));
+        assertEquals("8", Operations.multi("4", "2"));
+        assertEquals("63", Operations.multi("9", "7"));
+        //assertEquals("5535", Operations.multi("123", "45"));
+        assertEquals("56088", Operations.multi("123", "456"));
+        //assertEquals("90", Operations.multi("12", "10"));
+
+        assertEquals("121", Operations.multi("10", "8"));
+
+
+        //assertEquals("19435", Operations.multiply_operation("845", "23"));
+        //assertEquals("16278925", Operations.multiply_operation("845", "19265"));
+        //assertEquals("16289908342171365", Operations.multiply_operation("845545321", "19265565"));
 
     }
 

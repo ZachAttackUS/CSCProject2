@@ -1,5 +1,5 @@
 import static java.lang.Math.abs;
-
+import java.util.logging.*;
 public class Operations {
 
 
@@ -64,13 +64,7 @@ public class Operations {
             finalList.add(1);
         }
         //turns linkedlist into string
-        Node finallistcur = finalList.getHead().getNext();
-        StringBuilder sb = new StringBuilder();
-        while (finallistcur != null){
-            sb.insert(0, finallistcur.getKey());
-            finallistcur = finallistcur.getNext();
-        }
-        String final_string = sb.toString();
+        String final_string = finalList.turn_into_string();
         return final_string;
         }
 
@@ -104,46 +98,33 @@ public class Operations {
 
 
     public static String multi(String value1, String value2){
-        int lenDiff = value1.length() - value2.length();
-        lenDiff = abs(lenDiff); //used for adding leading zeros in lists
-
+        System.out.println("test");
 
         LinkedList addList1 = new LinkedList(); //first value inputted. list form
         LinkedList addList2= new LinkedList(); //second value inputted, list form
 
-        //adds leading 0s to front of value1 if shorter
-        if (value1.length() > value2.length()){
-            StringBuilder value2Builder = new StringBuilder(value2);
-            for (int i = lenDiff; i > 0; i--){
-                value2Builder.insert(0, "0");
-            }
-            value2 = value2Builder.toString();
-        }
-        //adds leading 0s to front of value2 if shorter
-        else if (value2.length() > value1.length()) {
-            StringBuilder value1Builder = new StringBuilder(value1);
-            for (int i = lenDiff; i > 0; i--){
-                value1Builder.insert(0, "0");
-            }
-            value2 = value1Builder.toString();
-        }
 
         //adds nodes for each digit in values from right to left
         for (int i = value1.length()-1; i >= 0; i--){
             addList1.add(Character.getNumericValue(value1.charAt(i)));
+        }
+        for (int i = value2.length()-1; i >= 0; i--){
             addList2.add(Character.getNumericValue(value2.charAt(i)));
         }
+
 
         Node current1 = addList1.getHead().getNext(); //node for traversing through first list
         Node current2 = addList2.getHead().getNext(); //node for traversing through second list
         LinkedList multipleList = new LinkedList(); //list for computed value
-        LinkedList compared_List = new LinkedList(); //list for storing previous multiplication
 
 
         //does the multiplication
         int iterations = 0;
         int carry = 0;
+        String add_value1 = "";
+        String add_value2;
         while (current1 != null){
+
             while (current2 != null){
                 int multi_value = current1.getKey() * current2.getKey();
                 if (carry > 0){
@@ -156,18 +137,37 @@ public class Operations {
 
                 }
 
+
                 multipleList.add(multi_value);
                 current2 = current2.getNext();
             }
-
-            compared_List = multipleList;
+            if (carry > 0){
+                multipleList.add(carry);
+                carry = 0;
+            }
 
             iterations++;
-            multipleList.add(0);
-            if (iterations > 2);
+            //Stores firstnum (Only once)
+            if (iterations == 1) {
+                add_value1 = multipleList.turn_into_string();
+
+            //Stores second num
+            }  else if (iterations >= 2) {
+                add_value2 = multipleList.turn_into_string();
+                add_value1 = add_Operation(add_value1, add_value2);
+            }
+            multipleList.make_Empty();
+
+            for (int i = 0; i < iterations; i++){
+                multipleList.add(0);
+            }
+
+
+            current2 = addList2.getHead().getNext();
+            current1 = current1.getNext();
 
         }
-    return value1;
+    return add_value1;
     }
 
 
