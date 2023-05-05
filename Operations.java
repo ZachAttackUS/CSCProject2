@@ -26,7 +26,7 @@ public class Operations {
             for (int i = lenDiff; i > 0; i--){
                 value1Builder.insert(0, "0");
             }
-            value2 = value1Builder.toString();
+            value1 = value1Builder.toString();
         }
 
         //adds nodes for each digit in values from right to left
@@ -68,16 +68,16 @@ public class Operations {
         return final_string;
         }
 
-//    public static String multiply_operation(String value1, String value2){
-//        //change to int
-//        int SecondValueInt = Integer.parseInt(value2);
-//        String additionvalue = value1;
-//        System.out.println(SecondValueInt);
-//        for (int i = 0; i < (SecondValueInt - 1); i++){
-//            additionvalue = add_Operation(additionvalue, value1);
-//        }
-//        return additionvalue;
-//    }
+    public static String multiply_operation(String value1, String value2){
+        //change to int
+        int SecondValueInt = Integer.parseInt(value2);
+        String additionvalue = value1;
+        System.out.println(SecondValueInt);
+        for (int i = 0; i < (SecondValueInt - 1); i++){
+            additionvalue = add_Operation(additionvalue, value1);
+        }
+        return additionvalue;
+    }
 
     public static int exponent_operation(int value, int power){
         String stringvalue = Integer.toString(value);
