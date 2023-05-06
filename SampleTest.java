@@ -153,7 +153,7 @@ public class SampleTest {
         assertEquals("4", Operations.exponent_operation("2","2"));
         assertEquals("1024", Operations.exponent_operation("4","5"));
         assertEquals("4096", Operations.exponent_operation("2","12"));
-        assertEquals("32768", Operations.exponent_operation("2","15"));
+        assertEquals("1237940039285380274899124224", Operations.exponent_operation("2","90"));
         assertEquals("32768", Operations.exponent_operation("2","15"));
         assertEquals("100000000000000000000000000000000000000000000000000", Operations.exponent_operation("10","50"));
 
