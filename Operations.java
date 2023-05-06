@@ -1,4 +1,8 @@
+
+
 import static java.lang.Math.abs;
+
+import java.util.Objects;
 import java.util.logging.*;
 public class Operations {
 
@@ -70,28 +74,61 @@ public class Operations {
         }
 
 
-    public static int exponent_operation(String value, String power){
-
-        String multipliedvalue = multi(value, value);
-        int int_value = Integer.parseInt(value);
+    public static String exponent_operation(String value, String power){
+        String function = "";
+        String multipliedvalue = "";
+        String firstpart;
+        String secondpart;
+        String power_div_two;
+        String subtract;
         int int_power = Integer.parseInt(power);
-        String less_than_zero_value = Integer.toString(1/int_value);
-        String neg_power = Integer.toString(-1*int_power);
-        String power_div_two = Integer.toString(int_power / 2);
-        String power_minus_one_div_two = Integer.toString((int_power - 1)/ 2);
-        if (int_power < 0){
-            return exponent_operation(less_than_zero_value, neg_power);
-        } else if (int_power == 0){
-            return 1;
+        String power_minus_one_div_two;
+        String sub;
+        String ending;
+
+        //String  = Integer.toString(int_power / 2); //change to .5
+        //String power_minus_one_div_two = Integer.toString((int_power - 1)/ 2);  //change to linked list and minus 1 very simple then multiply by .5
+
+        if (int_power == 0){
+            return "1";
         } else if (int_power % 2 == 0){
+            firstpart = multi(power, "10");
+            secondpart = multi(firstpart, "5");
+            power_div_two = secondpart.substring(0,secondpart.length()- 2);
+            multipliedvalue = multi(value, value);
             return exponent_operation(multipliedvalue, power_div_two);
         } else {
-            return int_value * exponent_operation(multipliedvalue, power_minus_one_div_two);
+            subtract = String.valueOf(power.charAt(power.length() - 1));
+            sub = subtract1(subtract, power);
+            firstpart = multi(sub, "10");
+            secondpart = multi(firstpart, "5");
+            if (Objects.equals(secondpart, "00")){
+                power_minus_one_div_two = secondpart.substring(0, secondpart.length() - 1);
+            }   else {
+            power_minus_one_div_two = secondpart.substring(0, secondpart.length() - 2);
+            }
+            multipliedvalue = multi(value, value);
+            function = exponent_operation(multipliedvalue, power_minus_one_div_two);
+            ending = multi(function, value);
+            return ending;
         }
 
 
     }
 
+    public static String subtract1(String value1, String bignum){
+
+        StringBuilder sb = new StringBuilder();
+        int v1 = Integer.parseInt(value1);
+        int result = v1 - 1;
+        String res = Integer.toString(result);
+        int start = bignum.lastIndexOf(value1);
+        sb.append(bignum.substring(0, start));
+        sb.append(res);
+        String final_string = sb.toString();
+        return final_string;
+
+    }
 
     public static String multi(String value1, String value2){
         System.out.println("test");
@@ -180,32 +217,3 @@ public class Operations {
 
 
 
-
-
-
-
-
-
-    /*
-     LinkedList Value1LL = new LinkedList();
-        LinkedList Value2LL = new LinkedList();
-        String[] splitv1 = value1.split("");
-        String[] splitv2 = value2.split("");
-
-        for (int i = splitv1.length - 1; i >= 0; i--){
-            Value1LL.add(Integer.parseInt(splitv1[i]));
-        }
-        for (int i = splitv2.length - 1; i >= 0; i--){
-            Value1LL.add(Integer.parseInt(splitv2[i]));
-        }
-
-        int length_of_number_V1 = Value1LL.size();
-        int length_of_number_V2 = Value2LL.size();
-        int addvalue = 0;
-        if (length_of_number_V1 == length_of_number_V2){
-            for (int i = 0; i <= length_of_number_V1; i++){
-                addvalue = addvalue + Value1LL.getHead().getKey() + Value2LL.getHead().getKey();
-                Value1LL = Value1LL.getHead().setNext();
-
-            }
-     */
